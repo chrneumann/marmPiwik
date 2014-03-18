@@ -400,7 +400,7 @@ class marm_piwik {
         // i (Wanis) think it should pass category name, not alist tilte, as it could be renamed by module (like seo)
         //$this->addPushParams('setEcommerceView', false, false, $oViewObject->getTitle());
 
-        $oCategory = $oViewObject->getActCategory();
+        $oCategory = $oViewObject->getActiveCategory();
         $this->addPushParams('setEcommerceView', false, false, $oCategory->oxcategories__oxtitle->value);
     }
 
@@ -411,7 +411,7 @@ class marm_piwik {
     public function setPiwikParamsForDetails($oViewObject)
     {
         $oProduct =  $oViewObject->getProduct();
-        $oCategory = $oProduct->getActCategory();
+        $oCategory = $oViewObject->getActiveCategory();
         $this->addPushParams(
             'setEcommerceView',
             $oProduct->oxarticles__oxartnum->value,
